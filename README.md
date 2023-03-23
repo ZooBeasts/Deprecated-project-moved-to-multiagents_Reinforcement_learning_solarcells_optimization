@@ -1,7 +1,7 @@
 # Reinforcement_learning_Multilayer_metamaterial
 
 
-The idea and gym has been formed, code test is on its way. While waiting why not see my other project. WGAN-GP for inveser design waveguide
+The idea and gym has been formed, code test is on its way. While waiting why not see my another project: WGAN-GP for inveser design waveguide
 
 
 
