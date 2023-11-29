@@ -1,4 +1,5 @@
 # Reinforcement_learning_Multilayer_metamaterial
+# Honestly, RL for metamaterials actually doesn't have really good advantages, TMM along PSO can do great jobs. I guess, for solar cell design maybe very useful.
 
 ## Ideal RL - HF type, aim for inverse design multilayer metamaterials, while HF aims to predict the ENZ cutoff points for generated materials. 
 
