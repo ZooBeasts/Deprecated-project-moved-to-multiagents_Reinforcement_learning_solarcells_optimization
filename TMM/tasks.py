@@ -1,78 +1,28 @@
 
-import gym
+import numpy as np
 
 eps=1e-5
 
-
 def get_env_fn(env_name, **kwargs):
-
-    if env_name == 'PerfectAbsorberVis-v0':
-        return perfect_absorber_vis(**kwargs)
-    elif env_name == 'PerfectAbsorberVisNIR-v0':
-        return perfect_absorber_vis_nir(**kwargs)
-    elif env_name == 'PerfectAbsorberVisNIR-v1':
-        return perfect_absorber_vis_nir5(**kwargs)
-    else:
+    if env_name == 'visnir':
         try:
-            return lambda: gym.make(env_name)
+            return vis_nir(**kwargs)
         except:
-            raise NotImplementedError("Env not registered!")
+            print("Env error!")
+    elif env_name == 'sloarcell':
+            return solarcell(**kwargs)
+    else:
+       raise NotImplementedError
 
-#####################################
-# Perfect absorber in visible range #
-#####################################
+
+def vis_nir(**kwargs):
 
 
-def perfect_absorber_vis(**kwargs):
-
-    lamda_low = 0.4
-    lamda_high = 0.8
-    wavelengths = np.arange(lamda_low, lamda_high+1e-3, 0.02)
-    materials = ['Ag', 'Al', 'Cr', 'Ge', 'SiC',
-                 'HfO2', 'SiO2', 'Al2O3', 'MgF2', 'TiO2']
-    simulator = TMM_sim(materials, wavelengths)
-    thickness_list = np.arange(15, 201, 2)
-
-    # we maximize the total absorption in the whole wavelength range
-    target = {'A': np.ones_like(wavelengths)}
-
-    config = {'wavelengths': wavelengths,
-              "materials": materials,
-              'target': target,
-              "merit_func": cal_reward,
-              "simulator": simulator}
-
-    if kwargs['discrete_thick']:
-        config['discrete_thick'] = True
-        config['thickness_list'] = thickness_list
-
-    def make():
-        env = TMM(**config)
-
-        return env
-
-    return make
-
-#####################################
-# Perfect absorber in [0.4-2] um #
-#####################################
-
-def perfect_absorber_vis_nir(**kwargs):
-
-    def gen_grid(low, high):
-    
-        ws = [low]
-        while ws[-1] < high:
-            ws.append(1.03*ws[-1])
-
-        return np.array(ws)
-
-    lamda_low = 0.4
-    lamda_high = 2.0
-    wavelengths = np.arange(lamda_low, lamda_high+1e-3, 0.01)
-    materials = ['Ag', 'Al', 'Al2O3', 'Cr', 'Ge', 'HfO2', 'MgF2', 'Ni', 'Si', 'SiO2', 'Ti', 'TiO2', 'ZnO', 'ZnS', 'ZnSe', 'Fe2O3']
+    wavelengths = np.arange(0.4, 1.8, 0.01)
+    materials = ['Ag', 'Al', 'Al2O3', 'Ge', 'HfO2', 'MgF2', 'Ni', 'Si', 'SiO2', 'Ti', 'TiO2',
+                 'ZnO', 'ZnS', 'ZnSe', 'Fe2O3','Pt','ITO','Au']
     simulator = TMM_sim(materials, wavelengths, substrate='Glass', substrate_thick=500)
-    thickness_list = np.arange(15, 201, 5)
+    thickness_list = np.arange(15, 255, 5)
 
     # we maximize the total absorption in the whole wavelength range
     target = {'A': np.ones_like(wavelengths)}
@@ -96,24 +46,16 @@ def perfect_absorber_vis_nir(**kwargs):
     return make
 
 
-def perfect_absorber_vis_nir5(**kwargs):
+def solarcell(**kwargs):
 
-    def gen_grid(low, high):
-    
-        ws = [low]
-        while ws[-1] < high:
-            ws.append(1.03*ws[-1])
 
-        return np.array(ws)
+    wavelengths = np.arange(0.4, 1.0, 0.01)
+    materials = ['Al2O3','TiO2','ITO','ZnO','WO3','Nb2O5','MAPbBr3','BaTiO3','CuO','Au']
+    #SrTiO3,'PbTiO3,'MAPbl3'
+    simulator = TMM_sim(materials, wavelengths, substrate='Au', substrate_thick=50)
+    thickness_list = np.arange(20, 400, 10)
 
-    lamda_low = 0.4
-    lamda_high = 2.0
-    wavelengths = np.arange(lamda_low, lamda_high+1e-3, 0.01)
-    materials = ['Cr', 'Ge', 'Si', 'TiO2', 'MgF2']
-    simulator = TMM_sim(materials, wavelengths, substrate='Glass', substrate_thick=500)
-    thickness_list = np.arange(15, 201, 5)
 
-    # we maximize the total absorption in the whole wavelength range
     target = {'A': np.ones_like(wavelengths)}
 
     config = {'wavelengths': wavelengths,
@@ -129,8 +71,9 @@ def perfect_absorber_vis_nir5(**kwargs):
 
     def make():
         env = TMM(**config)
-
         return env
 
     return make
+
+
 
