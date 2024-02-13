@@ -1,7 +1,7 @@
 # Reinforcement learning multilayer materials optimization 
 
 ## 13/02/2024 update
-## Reinforcement Learning with Long-Term-Short-Memory for Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
+## Reinforcement Learning with Long-Term-Short-Memory for Optical Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
 
 
  11/JAN 2024 Update:
