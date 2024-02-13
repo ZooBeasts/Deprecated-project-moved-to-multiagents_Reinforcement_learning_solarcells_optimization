@@ -1,9 +1,12 @@
 # Reinforcement learning multilayer materials optimization 
 
+## 13/02/2024 update
+## Reinforcement Learning with Long-Term-Short-Memory for Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
 
-## 11/JAN 2024 Update:
-## We have successfully tested the RL model. Solar cell experiment check is underway. Once confirmed, the Paper will be drafted and published soon.
-## However, the code will not be available, it will be used somewhere else and will be available once that project is finished. 
+
+ 11/JAN 2024 Update:
+ We have successfully tested the RL model. Solar cell experiment check is underway. Once confirmed, the Paper will be drafted and published soon.
+ However, the code will not be available, it will be used somewhere else and will be available once that project is finished. 
 
 Further details will be published here once the experimental testing.  
 
