@@ -1,7 +1,11 @@
 # Reinforcement learning multilayer materials optimization 
 
-## 13/02/2024 update
-## Reinforcement Learning with Long-Term-Short-Memory for Optical Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
+## 22 / 02 / 2024 Update
+## Fortran and Python 2 Rust reforming completed 
+
+
+ 13/02/2024 update
+ Reinforcement Learning with Long-Term-Short-Memory for Optical Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
 
 
  11/JAN 2024 Update:
