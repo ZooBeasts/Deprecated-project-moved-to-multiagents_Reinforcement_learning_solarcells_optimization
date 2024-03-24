@@ -3,6 +3,10 @@
 ## 22 / 02 / 2024 Update
 ## Fortran and Python 2 Rust reforming completed 
 
+24/03/2024:
+ 13/02/2024 update
+ Reinforcement Learning with Long-Term-Short-Memory for Optical Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
+This part has been shifted to Q learning Photonic Geom OPT
 
  13/02/2024 update
  Reinforcement Learning with Long-Term-Short-Memory for Optical Multi-Coherent-Layer Materials Optimization in Linear and Nonlinear Regimes
