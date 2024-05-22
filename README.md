@@ -1,4 +1,9 @@
-# Reinforcement learning multilayer materials optimization 
+# Deprecated, this project is transferring to multiagents RL to do notch filter and bandpass filter. 
+
+
+
+
+Reinforcement learning multilayer materials optimization 
 
 
 
